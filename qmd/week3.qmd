@@ -21,7 +21,7 @@ Disable `.Rprofile` first.
 
 ## Import Python pandas data frame
 
-### R reticulate 
+### R reticulate
 
 R use `reticulate` package to communicate with Python interpreter.
 

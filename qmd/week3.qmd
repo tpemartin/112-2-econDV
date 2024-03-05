@@ -7,9 +7,31 @@ format:
 editor: visual
 ---
 
-## RStudio cloud: POSIT
+## Package installation errors
+
+Disable `.Rprofile` first.
+
+## AI and RStudio cloud (POSIT)
+
+<https://github.com/tpemartin/112-2-R-EE/blob/main/Lecture%20notes/week2-session1.md>
+
+## Python in POSIT
+
+<https://support.posit.co/hc/en-us/articles/360023654474-Installing-and-Configuring-Python-with-Posit>
 
 ## Import Python pandas data frame
+
+### R reticulate 
+
+R use `reticulate` package to communicate with Python interpreter.
+
+```{r}
+installed.packages("reticulate")
+```
+
+### Create a data frame example in Python
+
+Suppose you already has used Python before.
 
 ```{python}
 import pandas as pd
@@ -31,6 +53,8 @@ print("Data frame saved to 'dataframe_pickle.pkl'")
 
 
 ```
+
+Import the data frame
 
 ```{r}
 library(reticulate)

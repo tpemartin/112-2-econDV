@@ -1,29 +1,40 @@
 # week 3
 
-- [<span class="toc-section-number">1</span> Quarto](#quarto)
-- [<span class="toc-section-number">2</span> Running
-  Code](#running-code)
+- [<span class="toc-section-number">1</span> RStudio cloud:
+  POSIT](#rstudio-cloud-posit)
+- [<span class="toc-section-number">2</span> Import Python pandas data
+  frame](#import-python-pandas-data-frame)
+- [<span class="toc-section-number">3</span> ](#section)
 
-## Quarto
+## RStudio cloud: POSIT
 
-Quarto enables you to weave together content and executable code into a
-finished document. To learn more about Quarto see <https://quarto.org>.
+## Import Python pandas data frame
 
-## Running Code
+``` python
+import pandas as pd
+import pickle
 
-When you click the **Render** button a document will be generated that
-includes both content and the output of embedded code. You can embed
-code like this:
+# Create a dictionary with some data
+data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+        'Age': [25, 30, 35, 40],
+        'City': ['New York', 'Los Angeles', 'Chicago', 'Houston']}
 
-``` r
-1 + 1
+# Create a pandas data frame from the dictionary
+df = pd.DataFrame(data)
+
+# Save the dataframe to a pickle file
+with open('dataframe_pickle.pkl', 'wb') as file:
+    pickle.dump(df, file)
+
+print("Data frame saved to 'dataframe_pickle.pkl'")
 ```
 
-    [1] 2
+    Data frame saved to 'dataframe_pickle.pkl'
 
-You can add options to executable code like this
+``` r
+library(reticulate)
+# Load the python object containing pickled data frame
+df <- py_load_object("dataframe_pickle.pkl")
+```
 
-    [1] 4
-
-The `echo: false` option disables the printing of code (only output is
-displayed).
+## 

@@ -48,3 +48,4 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 qmd/example.r
+qmd/dataframe_pickle.pkl

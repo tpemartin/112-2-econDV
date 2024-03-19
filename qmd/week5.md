@@ -1,6 +1,8 @@
 # Bar chart
 
 ## Claude AI
+ 
+- <https://claude.ai/>
 
 當ChatGPT-3.5不能滿足你，你又沒有GPT-4可用，你可以使用Claude AI來生成範例圖表。
 

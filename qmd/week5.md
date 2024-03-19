@@ -259,3 +259,24 @@ combined_data <- bind_rows(data_list)
 # 將結果存儲在環境中已有的list物件results中
 results$combined_data <- combined_data
 ``` 
+
+### Prompt
+
+AI>
+```
+combined_data有以下欄位：
+- "學校名稱": character class
+- "在學學生人數_博士班": integer
+- "在學學生人數_碩士班": integer
+- "在學學生人數_學士班": integer
+- "學年度": integer
+
+晝一個圖
+ - geom: bar
+   - aes:
+     - x: 學年度
+     - y: 在學學生人數
+     - fill: 學制（博士班、碩士班，或學士班）
+呈現不同學年各學制在該年的人數佔比
+```
+

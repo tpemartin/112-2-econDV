@@ -1,6 +1,8 @@
 library(ggplot2)
 library(showtext)
 library(econDV2)
+library(reticulate)
+use_virtualenv("econDV", required = T)
 # add google font: Noto Sans TC for chinese characters
 sysfonts::font_add_google('Noto Sans TC')
 # turn on showing chinese text in graph device

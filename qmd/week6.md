@@ -13,8 +13,11 @@ AI>
 
 ## Put graph in Github page
 
-  - turn on Github page to serve the directory `docs`
-  - put the graph in the `docs` directory
+![](../img/2024-03-26-15-10-54.png)
+
+![](../img/2024-03-26-15-11-33.png)
+
+![](../img/2024-03-26-15-13-10.png)
 
 Your github page web url should be like `https://<username>.github.io/<repo>/` which accesses the `docs` directory.
 

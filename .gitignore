@@ -46,3 +46,7 @@ po/*~
 rsconnect/
 qmd/example.r
 qmd/dataframe_pickle.pkl
+data/112_student.csv
+data/rstudio-export.zip
+py/poster.py
+data/.DS_Store

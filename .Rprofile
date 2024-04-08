@@ -1,7 +1,16 @@
 library(ggplot2)
-library(showtext)
-library(econDV2)
-library(reticulate)
+if(!require("showtext")){
+  install.packages("showtext")
+} 
+if(!require("econDV2")){
+  remotes::install_github("tpemartin/econDV2")
+}
+if(!require("reticulate")){
+  install.packages("reticulate")
+}
+# library(showtext)
+# library(econDV2)
+# library(reticulate)
 use_virtualenv("econDV", required = T)
 # add google font: Noto Sans TC for chinese characters
 sysfonts::font_add_google('Noto Sans TC')

@@ -68,6 +68,29 @@ AI》
 
 #### remove fill legend
 
+#### 範例程式
+
+```r
+# initial plot ----
+# 讀取tidyverse套件
+library(tidyverse)
+
+# 建立資料框
+data <- tibble(
+  candidate = c("candidate A", "candidate B", "candidate C"),
+  supporting_rate = c(40.05, 33.49, 26.45)
+)
+
+# 建立長條圖
+myPlot <- ggplot(data, aes(x = candidate, y = supporting_rate, fill = candidate)) +
+  geom_bar(stat = "identity") +
+  labs(title = "2024 presidential election", subtitle = "unit: percentage") +
+  scale_y_continuous(expand = c(0, 0)) 
+
+# 印出長條圖
+print(myPlot)
+```
+
 ## Sequential 
 
 ![](../img/on-a-losing-streak.jpg)

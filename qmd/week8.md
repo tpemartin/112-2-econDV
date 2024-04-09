@@ -70,6 +70,9 @@ AI》
 
 #### remove fill legend
 
+AI》
+> remove x-axis title and fill legend. move y-axis title to the top left of the plot
+
 #### gg themes
 
 <https://ggplot2.tidyverse.org/reference/ggtheme.html>
@@ -102,6 +105,14 @@ myPlot +
   scale_fill_manual(values = c("candidate A" = "#67c167", "candidate B" = "#4372c4", "candidate C" = "#7ededd")) -> myPlot
 
  print(myPlot) 
+
+# 移除x軸標題和填充圖例 -----
+myPlot + 
+  theme(axis.title.x = element_blank(),
+        legend.position = "none",
+        axis.title.y = element_text(hjust = 0, vjust = 1, angle = 0)) -> myPlot
+
+print(myPlot)
 
 ```
 

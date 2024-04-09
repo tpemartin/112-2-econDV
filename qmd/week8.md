@@ -1,4 +1,9 @@
-# Color
+# Color/Fill Aesthetics
+
+## AI preset
+
+AI》
+> 回答程式問題時一律使用R, 並盡量使用tidyverse語法, 答案以R script呈現
 
 ## Color space model
 
@@ -35,6 +40,29 @@ AI》
 
 ![圖3](../img/2024-presidential-election-3.jpeg)
 
+### AI design
+
+AI》
+> Create a bar chart with: title "2024 presidential election", subtitle "unit: percentage", x-axis has three candidates: "candidate A", "candidate B", and "candidate C", y-axis is their supporting rate which are 40.05, 33.49 and 26.45 respectively. y-axis should have no expansion. Save the plot in `myPlot` object.
+>
+
+ - y-axis should have no exapansion.
+
+#### `+` operator in ggplot2
+
+In ggplot2, to change or override the default settings, we can use `+` operator to add new settings.
+
+AI》
+> From now on, use `+` to modify `myPlot` object when applicable in a new task.
+
+##### change fills
+
+AI》
+> - Change fill color so that candidate fills are #67c167, #4372c4 and #7ededd. 
+
+#### y title on top left
+
+#### remove fill legend
 
 ## Sequential 
 

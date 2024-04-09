@@ -64,6 +64,8 @@ AI》
 AI》
 > - Change fill color so that candidate fills are #67c167, #4372c4 and #7ededd. 
 
+![](../img/presidential-election-continue-practice.png)
+
 #### y title on top left
 
 #### remove fill legend
@@ -98,6 +100,7 @@ myPlot +
  print(myPlot) 
 
 ```
+
 
 ## Sequential 
 

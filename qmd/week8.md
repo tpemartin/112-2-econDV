@@ -112,6 +112,13 @@ myPlot +
         legend.position = "none",
         axis.title.y = element_text(hjust = 0, vjust = 1, angle = 0)) -> myPlot
 
+# theme_miminal ----
+# Must go before theme()
+myPlot + theme_minimal()+ 
+  theme(axis.title.x = element_blank(),
+        legend.position = "none",
+        axis.title.y = element_text(hjust = 0, vjust = 1, angle = 0)) 
+
 print(myPlot)
 
 ```

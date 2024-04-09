@@ -1,5 +1,24 @@
 # Color
 
+
+## Qualitative
+
+### 圖1
+
+![圖1](../img/2024-presidential-election-1.jpg)
+
+### 圖2
+
+![圖2](../img/2024-presidential-election-2.jpg)
+
+
+### 圖3
+
+![圖3](../img/2024-presidential-election-3.jpeg)
+
+
+## Sequential 
+
 ![](../img/on-a-losing-streak.jpg)
 
 ![](../img/glp-1.jpg)

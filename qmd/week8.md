@@ -89,6 +89,14 @@ myPlot <- ggplot(data, aes(x = candidate, y = supporting_rate, fill = candidate)
 
 # 印出長條圖
 print(myPlot)
+
+# change fill -----
+# 修改填充顏色
+myPlot + 
+  scale_fill_manual(values = c("candidate A" = "#67c167", "candidate B" = "#4372c4", "candidate C" = "#7ededd")) -> myPlot
+
+ print(myPlot) 
+
 ```
 
 ## Sequential 

@@ -70,6 +70,10 @@ AI》
 
 #### remove fill legend
 
+#### gg themes
+
+<https://ggplot2.tidyverse.org/reference/ggtheme.html>
+
 #### 範例程式
 
 ```r

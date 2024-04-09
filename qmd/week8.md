@@ -25,6 +25,10 @@ AI》
 
 ![](../img/2024-04-09-11-08-40.png)
 
+## Brewer palette
+
+- <https://r-graph-gallery.com/38-rcolorbrewers-palettes.html>
+
 ## Qualitative
 
 ### 圖1

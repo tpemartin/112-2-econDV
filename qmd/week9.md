@@ -122,4 +122,22 @@ ggplot(data, aes(x = Year)) +
   theme_minimal() +
   theme(plot.title = element_text(hjust = 0.5)) +
   scale_color_manual(values = c("Microsoft" = "cyan", "Alphabet" = "red", "Apple" = "black", "Facebook" = "blue", "Amazon" = "green"))
+
+# Create the line plot
+plt2<- ggplot(data, aes(x = Year)) +
+  geom_line(aes(y = Microsoft, color = "Microsoft"), size = 1) +
+  geom_line(aes(y = Apple, color = "Apple"), size = 1) +
+  geom_line(aes(y = Facebook, color = "Facebook"), size = 1) +
+  geom_line(aes(y = Amazon, color = "Amazon"), size = 1) +
+  geom_line(aes(y = Alphabet, color = "background"), size = 3) + 
+  geom_line(aes(y = Alphabet, color = "Alphabet"), size = 1.5) +
+  scale_y_continuous(limits = c(0, 1.6), breaks = seq(0, 1.6, 0.2)) +
+  scale_x_continuous(breaks = seq(2000, 2020, 2)) +
+  labs(x = "Year", y = "Market capitalisation ($trn)", title = "Trillion-dollar tech") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  scale_color_manual(values = c("Microsoft" = "#75d5dd", "background"="white", "Alphabet" = "#c83727", "Apple" = "#5f8ab4", "Facebook" = "#bfa9af", "Amazon" = "#e6c280"))
+
+
+plt2
 ```

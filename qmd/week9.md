@@ -85,6 +85,11 @@ Use `ggnewscale` package.
 
 `+ new_scale_{aes}()` then `+` new geom and `+` new scale.
 
+### other information
+
+```r
+scales::show_col(c("#C87A8A", "#909646", "#00A396", "#9189C7", "#C87A8A", "#1eb8cc"))
+```
 
 ## Exercise
 

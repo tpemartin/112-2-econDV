@@ -66,6 +66,13 @@ colorspace::choose_palette(gui="shiny")
 
 ![](../img/2024-04-16-11-52-10.png)
 
+```r 
+# check registered palettes
+## for qualitative palette for example
+hcl_palettes(type = "qualitative")
+```
+
+
 ### Use palette
 
 `plot + colorspace::scale_{aes}_{data type}_{purpose}(palette = "registered palette name")`

@@ -36,30 +36,32 @@ Create a panel data frame that has "department" as identity dimension and "year"
 ```r
 library(tidyverse)
 
-# Create a data frame with all combinations of department and year
-panel_data <- expand_grid(
-  department = c("Dept A", "Dept B", "Dept C", "Dept D", "Dept E"),
-  year = 2014:2018
+# Department and faculty assignments
+dept_faculty_map <- tribble(
+  ~department,    ~faculty,
+  'Department 1', 'Faculty of Science',
+  'Department 2', 'Faculty of Science',
+  'Department 3', 'Faculty of Science',
+  'Department 4', 'Faculty of Arts',
+  'Department 5', 'Faculty of Arts',
+  'Department 6', 'Faculty of Arts',
+  'Department 7', 'Faculty of Engineering',
+  'Department 8', 'Faculty of Engineering',
+  'Department 9', 'Faculty of Engineering',
+  'Department 10', 'Faculty of Engineering'
 )
 
-# Add share and faculty columns
-panel_data <- panel_data %>%
-  mutate(
-    share = case_when(
-      department == "Dept A" ~ c(0.25, 0.28, 0.22, 0.27, 0.24),
-      department == "Dept B" ~ c(0.18, 0.21, 0.19, 0.20, 0.22),
-      department == "Dept C" ~ c(0.30, 0.32, 0.29, 0.31, 0.33),
-      department == "Dept D" ~ c(0.22, 0.24, 0.21, 0.23, 0.25),
-      department == "Dept E" ~ c(0.27, 0.29, 0.26, 0.28, 0.30)
-    ),
-    faculty = case_when(
-      department %in% c("Dept A", "Dept B") ~ "Faculty of Science",
-      department %in% c("Dept C", "Dept D") ~ "Faculty of Arts",
-      department == "Dept E" ~ "Faculty of Engineering"
-    )
-  )
+# Cross join department and years, and add share column
+panel_data <- expand_grid(
+  department = dept_faculty_map$department,
+  year = 2014:2018
+) %>%
+  mutate(share = runif(n(), min = 0, max = 1))  # assign random shares between 0 and 1
 
-print(panel_data)
+# Add faculty to the panel data
+panel_data <- left_join(panel_data, dept_faculty_map, by = "department")
+
+panel_data
 ```
 
 
@@ -68,7 +70,7 @@ print(panel_data)
 Create a graph:
   - Layer 1: 
     - geom: line
-    - x: date
+    - x: year
     - y: share
     - color: departments in "Faculty of Science" uses different colors that has the same hue and lightness as #FF4C29, but differs in saturation. "Faculty of Arts" uses different colors that has the same hue and lightness as #21FF4C, but differs in saturation. "Faculty of Engineering" uses different colors that has the same hue and lightness as #4C29FF, but differs in saturation.
 ```
@@ -76,21 +78,26 @@ Create a graph:
 >>> ASSISTANT:
 ```r
 library(ggplot2)
-library(scales)
 
-# Define color palettes for each faculty
-science_colors <- alpha(desaturate("#FF4C29", seq(0.2, 0.8, length.out = 2)), 0.8)
-arts_colors <- alpha(desaturate("#21FF4C", seq(0.2, 0.8, length.out = 2)), 0.8)
-engineering_colors <- alpha(desaturate("#4C29FF", seq(0.2, 0.8, length.out = 1)), 0.8)
+# Define unique colors for each department in the specified faculty
+science_colors <- c("#FF4C29", "#FF6A49", "#FF885A", "#FFAB91")
+names(science_colors) <- c('Department 1', 'Department 2', 'Department 3')
 
-# Create a color mapping for departments
+arts_colors <- c("#21FF4C", "#54FF6E", "#77FF85", "#9CFFA6")
+names(arts_colors) <- c('Department 4', 'Department 5', 'Department 6')
+
+engineering_colors <- c("#4C29FF", "#6F4CFF", "#8A71FF", "#A799FF")
+names(engineering_colors) <- c('Department 7', 'Department 8', 'Department 9', 'Department 10')
+
+# Combine the color vectors
 department_colors <- c(science_colors, arts_colors, engineering_colors)
-names(department_colors) <- c("Dept A", "Dept B", "Dept C", "Dept D", "Dept E")
 
-# Plot the graph
-ggplot(panel_data, aes(x = year, y = share, color = department)) +
+
+# Create Line Plot
+ggplot(data = panel_data, aes(x = year, y = share, group = department, color = department)) +
   geom_line() +
   scale_color_manual(values = department_colors) +
-  labs(color = "Department") +
+  labs(title = "Department Shares Over Time", x = "Year", y = "Share", color = "Department") +
   theme_minimal()
+
 ```

@@ -67,6 +67,13 @@ AI》
 AI》
 > ```How to simplify simple features```
 
+
+### sf 引入順序
+
+![](../img/2024-04-23-15-23-47.png)
+
+> 留意sf要在最靠近Global environment的位置，至少比dplyr還要靠近。
+
 ### OpenStreetMap
 
 [Open Steet Map](https://tpemartin.github.io/economic-data-visualization/zh-tw/annotation-and-maps.html#open-street-map-osm)

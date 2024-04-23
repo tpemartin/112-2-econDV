@@ -89,3 +89,81 @@ ggplot主要用`geom_sf`來處理地點圖層，不用`geom_point`、`geom_polyg
 
 。`geom_sf`是`sf`套件的一部分，用來處理空間資料。`sf`套件是`sp`套件的後繼者，用來處理空間資料。`sf`套件的資料結構是`sf`，`sp`套件的資料結構是`sp`。`sf`套件的資料結構是`data.frame`，`sp`套件的資料結構是`Spatial`。`sf`套件的資料結構是`data.frame`，所以可以用`dplyr`套件的函數來處理資料。`sp`套件的資料結構是`Spatial`，所以不能用`dplyr`套件的函數來處理資料。
 
+## 範例程式1
+
+```r
+library(tidyverse)
+# Reading a shapefile -----
+shapeData <- st_read("COUNTY_MOI_1090820.shp")
+glimpse(shapeData)
+
+class(shapeData)
+
+# Simplifying shapeData simple feature -----
+simplified_shape <- st_simplify(shapeData,
+                                preserveTopology = TRUE, 
+                                dTolerance = 2)
+glimpse(simplified_shape)
+
+ggplot()+
+  geom_sf(
+    data=simplified_shape
+  )
+
+# Obtaining bounding box -----
+bbox <- st_bbox(simplified_shape)
+bbox
+
+bbox["ymin"] <- 21
+
+simplified_shape <- 
+  st_crop(simplified_shape,
+          bbox)
+
+ggplot()+
+  geom_sf(
+    data=simplified_shape
+  )
+
+object.size(simplified_shape)
+
+# Filtering out COUNTYNAME = "新北市" -----
+simplified_shape2 <- simplified_shape %>% 
+  filter(COUNTYNAME == "新北市")
+class(simplified_shape2)
+
+ggplot()+
+  geom_sf(
+    data=simplified_shape2,
+    fill="red",color="blue",
+    linewidth=2
+  )
+
+# Creating a column "zone" with random assignment -----
+set.seed(123)  # Setting seed for reproducibility
+simplified_shape <- simplified_shape %>%
+  mutate(zone = sample(c("north", "south", "east", "west"), size = n(), replace = TRUE))
+glimpse(simplified_shape)
+
+ggplot()+
+  geom_sf(
+    data=simplified_shape,
+    mapping=aes(
+      fill=zone
+    )
+  )
+
+# Plotting simplified_shape with filled color determined by zone column -----
+plot <- ggplot(simplified_shape) +
+  geom_sf(aes(fill = zone)) +
+  theme_minimal() +
+  scale_fill_manual(values = c("north" = "blue", "south" = "green", "east" = "red", "west" = "yellow")) +
+  labs(title = "Simplified Shape with Zone Coloring", subtitle = "Zone") +
+  theme(legend.position = "bottom") +
+  theme(legend.title = element_blank()) +
+  theme(legend.text = element_text(size = 8)) +
+  theme(axis.line.x = element_line(color = "black", size = 0.5)) +
+  labs(caption = "Data Source: your_source")
+
+print(plot)
+```

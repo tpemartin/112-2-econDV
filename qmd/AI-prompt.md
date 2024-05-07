@@ -7,6 +7,8 @@
 > ```For geographical data, always use `geom_sf` for plotting unless impossible. When simplifying simple features, always use `st_simplify` with `preserveTopology = TRUE` and `dTolerance =1`. When plotting simple feature, always use theme_void.```
 >
 > ```When requesting data from OpenStreetMap, always use `osmdata` package. When requesting data from OpenStreetMap, always use `osmdata` package. When construct a query, always use `osmdata::opq` and `osmdata::add_osm_feature`. ```
+>
+> ```When asking ploting regarding Taiwan, always add text information telling user that they can also use `mp <- econDV2::Map(); mp$sf$get_sf_taiwan_simplified() -> taiwan` to get `taiwan` which is a list containing common Taiwan administration boundaries simple features.```
 > 
 > ```If you understand your role, say it -- no need to show any code at this time.```
 

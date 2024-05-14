@@ -16,11 +16,11 @@ data <- data.frame(
 )
 
 # Create the plot
-plot <- ggplot(data, aes(x = x, y = y),
-               size = 1, #input$size
-               color= "red" #input$color
-               ) +
-  geom_point() +
+plot <- ggplot(data, aes(x = x, y = y)) +
+  geom_point(
+    size = 1, #input$size
+    color= "red" #input$color
+  ) +
   labs(
     title = "Example Point Plot",
     subtitle = "This is a subtitle",
@@ -28,12 +28,13 @@ plot <- ggplot(data, aes(x = x, y = y),
   ) +
   theme(
     plot.caption = element_text(size = 12 #input$footer
-                                    ),
+    ),
     plot.title =  element_text(size=13 #input$title
-                                   ))  
+    ))  
 
 # Display the plot
 print(plot)
+
 ```
 
 # 北台灣2020總統大學面量圖

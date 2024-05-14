@@ -72,4 +72,22 @@ election2020 <- election2020 %>%
 
 # Showing first 3 rows of the updated data frame
 glimpse(election2020 %>% slice_head(n = 3))
+
+# election plot----
+tw_township |>
+  filter(
+    is_in.city == "新北市"
+  ) -> sf_newTaipei
+
+sf_newTaipei |>
+  left_join(
+    election2020,
+    by=c("name"="鄉(鎮、市、區)別" )
+  ) -> sf_newTaipei
+
+sf_newTaipei |>
+  ggplot() +
+  geom_sf(
+    aes(fill=支持率)
+  )
 ```

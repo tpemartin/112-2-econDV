@@ -90,7 +90,8 @@ sf_newTaipei |>
   geom_sf(
     aes(fill=支持率)
   )
-  
+
+# use colorspace::choose_palette(gui="shiny") to choose a palette
 colorspace::diverging_hcl(n = 12, h = c(249, 106), c = 98, l = c(34, 96), power = 1.5, register = "Custom-Palette")
 
 sf_newTaipei |>

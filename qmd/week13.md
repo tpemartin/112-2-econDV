@@ -50,3 +50,26 @@ list_sf_taiwan$鄉鎮區 -> tw_township
 ```
 
   - 各縣市以當選候選人得票率為顏色深淺，以面量圖呈現。
+
+## 範例程式
+
+```r
+election2020 = jsonlite::fromJSON(
+  "https://www.dropbox.com/s/a3torx0p41hheb6/presidentElection2020.json?dl=1"
+)
+
+mp <- econDV2::Map()
+mp$sf$get_sf_taiwan_simplified() -> list_sf_taiwan
+list_sf_taiwan$鄉鎮區 -> tw_township
+
+
+# Calculate support rate based on election2020 data frame -----
+library(tidyverse)
+
+# Assuming election2020 is the name of your data frame
+election2020 <- election2020 %>%
+  mutate(支持率 = if_else(`(2)\n 韓國瑜\n 張善政` > `(3)\n 蔡英文\n 賴清德`, -(`(2)\n 韓國瑜\n 張善政`), `(3)\n 蔡英文\n 賴清德`))
+
+# Showing first 3 rows of the updated data frame
+glimpse(election2020 %>% slice_head(n = 3))
+```

@@ -90,4 +90,25 @@ sf_newTaipei |>
   geom_sf(
     aes(fill=支持率)
   )
+  
+colorspace::diverging_hcl(n = 12, h = c(249, 106), c = 98, l = c(34, 96), power = 1.5, register = "Custom-Palette")
+
+sf_newTaipei |>
+  ggplot() +
+  geom_sf(
+    aes(fill=支持率)
+  ) +
+  colorspace::scale_fill_continuous_diverging(pal = "Custom-Palette",
+                                              mid=0,
+                                              limits=c(-1,1))
+sf_newTaipei |>
+  ggplot() +
+  geom_sf(
+    aes(fill=支持率)
+  ) +
+  colorspace::scale_fill_binned_diverging(
+    pal="Custom-Palette",
+    n.breaks=8,
+    limits=c(-1,1)
+  )
 ```

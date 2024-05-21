@@ -14,7 +14,7 @@ As to sequence of layers, the primary color should be the last layer, the second
 
 ### Practice: color scheme
 
-[Trillion dollar tech](img/trillion-dollar-tech.png)
+[Trillion dollar tech](../img/trillion-dollar-tech.png)
 
 AI>>
 Give me the R code that produces it. However, the data frame for the exmaple only need to have date vary from 2000-01-01 to 2001-12-01 monthly.
@@ -25,4 +25,4 @@ White, black, and gray are neutral colors. They are used to create contrast and 
 
 ### Practice: neutral color
 
-[The golden ticket](img/the-golden-ticket.jpg)
+[The golden ticket](../img/the-golden-ticket.jpg)

@@ -59,13 +59,15 @@ market_cap_plot
 
 ## 輸出SVG
 
-
+### 使用視窗選擇（不推薦）
 
 Export
 ![](../img/2024-05-28-12-56-20.png)
 
 Save as SVG
 ![](../img/2024-05-28-12-58-17.png)
+
+### 使用程式
 
 ```r
 ggsave("test2.svg", market_cap_plot, width=700, height=500, units="px", dpi="screen", device=svg)

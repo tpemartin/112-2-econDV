@@ -59,6 +59,8 @@ market_cap_plot
 
 ## 輸出SVG
 
+
+
 Export
 ![](../img/2024-05-28-12-56-20.png)
 
@@ -69,6 +71,7 @@ Save as SVG
 ggsave("test2.svg", market_cap_plot, width=700, height=500, units="px", dpi="screen", device=svg)
 ```
 
+# Figma
 
 ## 引入SVG 
 

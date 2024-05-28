@@ -1,0 +1,10 @@
+data_long data frame has the following structure:
+$ date       <date> 2000-01-01, 2000-01-01…
+$ company    <chr> "Microsoft", "Apple", "…
+$ market_cap <dbl> 0.12875775, 0.23114116,…
+Give me a line plot of market_cap of different company across dates.
+
+Alphabet should use primary color;
+Microsoft and Apple use secondary color of different variants; as to Amazon and Facebook, they use tertiary color of different variants.
+
+Lines with secondary and tiertiary colors should have alpha = 0.5. 

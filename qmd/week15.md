@@ -69,6 +69,13 @@ Save as SVG
 
 ### 使用程式
 
+先安裝svglite套件
+
+```r
+install.packages("svglite")
+```
+
+然後執行以下程式碼
 ```r
 ggsave("test2.svg", market_cap_plot, width=700, height=500, units="px", dpi="screen", device=svg)
 ```
